@@ -15,7 +15,7 @@ def detect_nose(img, faceCascade):
     nose_cords = []
     # drawing rectangle around the feature and labeling it
     for (x, y, w, h) in features:
-#         cv2.rectangle(img, (x,y), (x+w, y+h),  color['green'], 2)  #uncomment if you want to see face boundary
+        cv2.rectangle(img, (x,y), (x+w, y+h),  color['green'], 2)  #uncomment if you want to see face boundary
         cv2.circle(img, ((2*x+w)//2,(2*y+h)//2), 10, color['green'], 2) 
         nose_cords = ((2*x+w)//2,(2*y+h)//2)
     return img, nose_cords
@@ -64,7 +64,7 @@ def get_movement(curr, prev, last_time_update, cmd):
 faceCascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 # Capturing real time video stream.
-video_capture = cv2.VideoCapture(-1)
+video_capture = cv2.VideoCapture(0)
 
 # get vcap property 
 width  = video_capture.get(3) # float
